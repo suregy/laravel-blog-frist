@@ -19,12 +19,12 @@ class BlogController extends Controller
     {
         $blogs = Blog::paginate(3);
         $tags = Tag::orderBy('id', 'desc')->paginate(4);
-        $kategori = Kategori::orderBy('id', 'desc')->paginate(4);
-        return view('blog.index', compact('blogs'),compact('tags'))->withKategori($kategori);
+        $kategoris = Kategori::orderBy('id', 'desc')->paginate(4);
+        return view('blog.index', compact('blogs'),compact('tags'))->withKategoris($kategoris);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */
@@ -89,9 +89,11 @@ class BlogController extends Controller
      */
     public function show($slug)
     {
+        $tags = Tag::paginate(4);
+        $kategoris = Kategori::paginate(4);
         $show = Blog::where('slug_judul', $slug)->with('get_kategori')->get()->first();
         //dd($show);
-        return view('blog.show',compact('show'),compact('kategori'));
+        return view('blog.show',compact('show'))->withTags($tags)->withKategoris($kategoris);
     }
 
     /**

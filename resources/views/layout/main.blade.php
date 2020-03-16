@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">  
 
+   
+
     <title>@yield('title')</title>
   </head>
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow py-3">
      <div class="container">
         <a class="navbar-brand" href="/">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +34,8 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ url('/blog/create') }}">Input Blog</a>
-                <a class="dropdown-item" href="{{ url('/kategori') }}">Kategori</a>
-                <a class="dropdown-item" href="{{ url('/tag') }}">Tag</a>
+                <a class="dropdown-item" href="{{ url('/kategori/create') }}">Input Kategori</a>
+                <a class="dropdown-item" href="{{ url('/tag/create') }}">Input Tag</a>
               </div>
             </li>
             </div>

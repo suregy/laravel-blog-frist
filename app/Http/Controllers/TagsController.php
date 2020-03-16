@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Blog;
+use App\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +17,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $Tag = DB::table('tags')->paginate(5);
-        return view('blog.tag.index', compact('Tag'));
+        
     }
 
     /**
@@ -26,7 +27,8 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        $Tag = DB::table('tags')->paginate(5);
+        return view('blog.tag.index', compact('Tag'));
     }
 
     /**
@@ -42,7 +44,7 @@ class TagsController extends Controller
         ]);
 
         Tag::create($request->all());
-        return redirect('/tag')->with('status', 'Data berhasil disimpan!');
+        return redirect('/tag/create')->with('status', 'Data berhasil disimpan!');
     }
 
     /**
@@ -53,7 +55,12 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::paginate(4);
+        $kategoris = Kategori::paginate(4);
+        $tags2 = Tag::find($id);
+        $tags3 = $tags2->get_blog()->paginate(2);
+        $blogs = Blog::paginate(3);
+        return view('blog.tag.show',compact(['tags','blogs','kategoris','tags2','tags3']));
     }
 
     /**

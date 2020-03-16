@@ -15,8 +15,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = DB::table('kategori')->paginate(2);
-        return view('blog.kategori.index', compact('kategori'));
+        
     }
 
     /**
@@ -26,7 +25,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('blog.kategori.create');
+        $kategori = DB::table('kategori')->paginate(2);
+        return view('blog.kategori.create', compact('kategori'));
     }
 
     /**
@@ -43,7 +43,7 @@ class KategoriController extends Controller
 
         Kategori::create($request->all());
 
-        return redirect('/kategori')->with('status', 'Data berhasil disimpan!');
+        return redirect('/kategori/create')->with('status', 'Data berhasil disimpan!');
     }
 
     /**
@@ -87,7 +87,7 @@ class KategoriController extends Controller
                             'nama' => $request->nama
                         ]);
 
-        return redirect('/kategori')->with('status','Data berhasil di ubah');
+        return redirect('/kategori/create')->with('status','Data berhasil di ubah');
     }
 
     /**
@@ -99,6 +99,6 @@ class KategoriController extends Controller
     public function destroy(Kategori $kategori)
     {
         Kategori::destroy($kategori->id);
-        return redirect('/kategori')->with('status','Data berhasil di hapus');
+        return redirect('/kategori/create')->with('status','Data berhasil di hapus');
     }
 }

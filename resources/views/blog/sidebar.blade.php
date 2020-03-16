@@ -13,13 +13,13 @@
                 <!-- Categories Widget -->
                
     <div class="card my-4">
-          <h5 class="card-header">Total {{ $kategori->total() }} Kategori</h5>
+          <h5 class="card-header">Total {{ $kategoris->total() }} Kategori</h5>
           <div class="card-body">
             
-              @foreach($kategori as $kat)
+              @foreach($kategoris as $kat)
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#"> {{ $kat->nama }} <span class="float-right badge badge-dark text-wrap">{{$kat->get_blog()->count()}} posts </span></a>
+                    <a href=" # "> {{ $kat->nama }} <span class="float-right badge badge-dark text-wrap">{{$kat->get_blog()->count()}} posts </span></a>
                   </li>
                 </ul>
                 @endforeach
@@ -34,7 +34,7 @@
           @foreach($tags as $tag)
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#"> {{ $tag->tag }} <span class="float-right badge badge-dark text-wrap">{{$tag->get_blog()->count()}} posts </span> </a>
+                    <a href=" {{ url('tag', $tag->id) }} "> {{ $tag->tag }} <span class="float-right badge badge-dark text-wrap">{{$tag->get_blog()->count()}} posts </span> </a>
                   </li>
                 </ul>
               @endforeach

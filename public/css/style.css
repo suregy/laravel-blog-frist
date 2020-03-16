@@ -6,7 +6,7 @@ a:hover {
 }
 
 body {
-    background-color: #ebe9e9;
+    
 }
 
 nav a {
@@ -76,9 +76,16 @@ img {
     margin-left: auto;
 }
 
+
 .sosmed span {
     font-size: 1rem;
 }
+
+.article-author span {
+    font-size: .8rem;
+    font-weight: bold;
+}
+
 
 .blog-post_title p{
     font-weight: bold;
@@ -91,6 +98,13 @@ img {
     margin-bottom: 0rem;
     font-size: 0.9rem;
     margin-left: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.blog-article_text {
+    margin-bottom: 0rem;
+    font-size: 0.9rem;
     text-align: justify;
     text-justify: inter-word;
 }
