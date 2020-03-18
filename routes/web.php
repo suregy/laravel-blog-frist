@@ -47,3 +47,4 @@ Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload'
 Route::resource('blog', 'BlogController'); //apabila semua route mau dijalankan tinggal gunakan resource
 Route::resource('kategori', 'KategoriController'); //apabila semua route mau dijalankan tinggal gunakan resource
 Route::resource('tag', 'TagsController');
+Route::post('cari','cariController@cari')->name('cari');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Kategori;
+use App\Tag;
+use App\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -52,9 +54,13 @@ class KategoriController extends Controller
      * @param  \App\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function show(Kategori $kategori)
+    public function show($id)
     {
-        //
+        $tags = Tag::paginate(4);
+        $kategoris = Kategori::paginate(4);
+        $kategoris2 = Kategori::find($id);
+        $kategoris3 = $kategoris2->get_blog()->paginate(2);
+        return view('blog.kategori.show',compact(['tags','kategoris','kategoris2','kategoris3']));
     }
 
     /**

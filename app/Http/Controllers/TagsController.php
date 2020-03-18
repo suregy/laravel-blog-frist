@@ -59,8 +59,7 @@ class TagsController extends Controller
         $kategoris = Kategori::paginate(4);
         $tags2 = Tag::find($id);
         $tags3 = $tags2->get_blog()->paginate(2);
-        $blogs = Blog::paginate(3);
-        return view('blog.tag.show',compact(['tags','blogs','kategoris','tags2','tags3']));
+        return view('blog.tag.show',compact(['tags','kategoris','tags2','tags3']));
     }
 
     /**

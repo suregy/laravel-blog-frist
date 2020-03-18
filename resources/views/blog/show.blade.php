@@ -20,7 +20,7 @@
                             </div>
                             <div class="sosmed">
                                 <span><a onclick="share()" href="" class="text-primary"><i class="fa fa-facebook-official"></a></i></span>
-                                <span><a href="#" class="text-info"><i class="fa fa-twitter-square"></a></i></span>
+                                <span><a href="https://twitter.com/intent/tweet?text={{ $show->judul }}&url={{url('/')}}/blog/{{ $show->slug_judul }}" class="text-info"><i class="fa fa-twitter-square"></a></i></span>
                                 <span><a href="#" class="text-success"><i class="fa fa-whatsapp"></a></i></span>
                                 <span><a href="#" class="text-primary"><i class="fa fa-telegram"></a></i></span>
                             </div>

@@ -1,13 +1,17 @@
+        
         <div class="card my-4">
+        <form action="/cari" method="post">
+        @csrf
           <h5 class="card-header">Search</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" name="cari" class="form-control" placeholder="Search for...">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button class="btn btn-secondary" type="submit">Go!</button>
               </span>
             </div>
           </div>
+          </form>
         </div>
 
                 <!-- Categories Widget -->
@@ -19,7 +23,7 @@
               @foreach($kategoris as $kat)
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href=" # "> {{ $kat->nama }} <span class="float-right badge badge-dark text-wrap">{{$kat->get_blog()->count()}} posts </span></a>
+                    <a href="{{ url('kategori', $kat->id) }}"> {{ $kat->nama }} <span class="float-right badge badge-dark text-wrap">{{$kat->get_blog()->count()}} posts </span></a>
                   </li>
                 </ul>
                 @endforeach
